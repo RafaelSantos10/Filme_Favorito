@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { CircularProgressbarWithChildren } from "react-circular-progressbar";
-
+import Image from 'react-bootstrap/Image';
 import fire from "../../assets/img/flame-icon.svg";
 import star from "../../assets/img/feedback-testimonial-icon.svg";
 
@@ -28,12 +28,9 @@ function Cards({ title, movie }) {
                 className="divote_average"
                 value={votePorcent.toFixed(1)}
               >
-                <img
-                  style={{ width: 25, marginBottom: 10 }}
-                  src={fire}
-                  alt="doge"
-                />
-                <div style={{ fontSize: 12, marginTop: -5, stroke: "yellow" }}>
+                <Image  className={styles.iconCardCustom} src={fire} fluid />
+            
+                <div className={styles.cardIconText}>
                   <strong>{votePorcent.toFixed(1)}</strong>%
                 </div>
               </CircularProgressbarWithChildren>
@@ -44,19 +41,17 @@ function Cards({ title, movie }) {
                 className="divote_count"
                 value={movie.vote_count}
               >
-                <img
-                  style={{ width: 25, marginBottom: 10 }}
-                  src={star}
-                  alt="doge"
-                />
-                <div style={{ fontSize: 12, marginTop: -5 }}>
+                 <Image  className={styles.iconCardCustom} src={star} fluid />
+                
+                <div className={styles.cardIconText}>
                   <strong>{movie.vote_count}</strong>
                 </div>
               </CircularProgressbarWithChildren>
             </div>
           </div>
           <div className={styles.cardDivTitle}>
-            <Card.Title className={styles.cardTitle}>{title}</Card.Title>
+          
+            <Card.Title className={styles.cardTitle}>{title ? title : movie.name}</Card.Title>
           </div>
           <div className={styles.infoFlexCustom}>
             {movie.release_date ? (

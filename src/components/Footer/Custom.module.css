@@ -1,0 +1,20 @@
+.footerContainerCustom {
+  max-width: 100%;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 2rem;
+  background-color: #ccc;
+  font-size: var(--font-ss) !important;
+}
+
+.navFooter {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.navFooter ul li {
+  list-style: none;
+}
