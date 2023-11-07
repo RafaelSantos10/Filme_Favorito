@@ -14,7 +14,8 @@ function NavBar() {
     <Navbar expand="lg" className={` ${styles.navStyleCustom}`}>
       <Container fluid>
         
-          <Navbar.Brand href="/">
+        <Link to={'/'}>
+          <Navbar.Brand>
          
             <img
               className={styles.navLogo}
@@ -23,6 +24,7 @@ function NavBar() {
             />
            
           </Navbar.Brand>
+        </Link>
         
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">

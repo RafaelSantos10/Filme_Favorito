@@ -1,23 +1,20 @@
-import Home from "./pages/Home";
-import NavBar from "./components/NavBar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+
+import NavBar from "./components/NavBar/index.jsx";
+import Footer from "./components/Footer/index.jsx";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Details from "./pages/Details";
-import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
+    <div className="container">
       <NavBar />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="movie/:id" element={<Details />} />
-        </Routes>
-      </BrowserRouter>
-      <Footer />
+      <Outlet />
+      <Footer/>
+    </div>
+      
     </>
   );
 }
