@@ -1,10 +1,11 @@
 .GridContainerCustom{
-    margin: 5rem 0;
+    margin: 5rem auto;
     border: 1px solid #000;
     padding: 2rem;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    max-width: 90%;
     
 }
 

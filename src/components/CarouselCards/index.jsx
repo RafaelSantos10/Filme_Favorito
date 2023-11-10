@@ -3,20 +3,21 @@ import Slider from "react-slick";
 import Col from "react-bootstrap/Col";
 import Cards from "../Card";
 import styles from "./Custom.module.css";
+import { Container } from "react-bootstrap";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
-const CarouselCards = ({URL}) => {
+const CarouselCards = ({ URL, idSession }) => {
   const [topMovies, setTopMovies] = useState([]);
 
   const settings = {
     infinite: true,
     speed: 300,
-    arrows: true,
+    arrows: false,
     slidesToShow: 6,
     slidesToScroll: 1,
-    autoplay: false,
-    autoplaySpeed: 3000,
+    autoplay: true,
+    autoplaySpeed: 2000,
     pauseOnHover: true,
     initialSlide: 0,
     responsive: [
@@ -24,15 +25,13 @@ const CarouselCards = ({URL}) => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
           infinite: true,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 3,
           initialSlide: 2,
         },
       },
@@ -40,7 +39,7 @@ const CarouselCards = ({URL}) => {
         breakpoint: 480,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          initialSlide: 2,
         },
       },
     ],
@@ -52,27 +51,24 @@ const CarouselCards = ({URL}) => {
     setTopMovies(data.results);
   };
 
-
   useEffect(() => {
     const topRatedUrl = `${URL}top_rated?${apiKey}&language=pt-BR&include_image_language=pt-BR`;
-    getTopRatedMovies(topRatedUrl)
-    
+    getTopRatedMovies(topRatedUrl);
   }, []);
-
 
   return (
     <>
-      <div className={styles.containerCustom}>
+      <Container  className={styles.containerCustom} id={idSession}>
         <Slider {...settings}>
           {topMovies.map((movie) => {
             return (
-              <Col key={movie.id} xs={6} md={2}>
+              <Col key={movie.id} >
                 <Cards title={movie.title} movie={movie} />
               </Col>
             );
           })}
         </Slider>
-      </div>
+      </Container>
     </>
   );
 };

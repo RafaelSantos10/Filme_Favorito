@@ -1,13 +1,17 @@
 .cardSpacingCustom {
-  width: 10rem;
+  min-width: 150px;
+  max-width: 150px;
   padding: 0.5rem;
   text-align: left;
   background-color: #fbfbfb !important;
-  margin-bottom: 0.9rem;
   overflow: hidden;
+  margin: 0;
+ 
 }
 
-
+.cardSpacingCustom a {
+  text-decoration: none !important;
+}
 
 .infoFlexCustom {
   display: flex;
@@ -35,20 +39,30 @@
 }
 
 .flagbottom {
-    background-color: transparent;
-    border: 1px solid #000;
-    padding: 0 0.3rem;
-    margin-left: -1%;
-    font-size: 0.8rem;
-    width: max-content;
+  background-color: transparent;
+  border: 1px solid #000;
+  padding: 0 0.3rem;
+  color: #000 !important;
+  margin-left: -1%;
+  font-size: 0.8rem;
+  width: max-content;
 }
 .cardDivTitle {
+
   max-width: 120px;
   font-size: var(--font-md);
+
 }
 
 .cardTitle {
   overflow: hidden;
+  color: #000 !important;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 480px) {
+  .cardSpacingCustom{
+    margin: 0rem ;
+  }
 }

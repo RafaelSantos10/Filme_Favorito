@@ -7,10 +7,10 @@ const Home = () => {
   const seriesURL = import.meta.env.VITE_TV_SERIES;
   return (
     <>
-      <HeadersPoster />
-      <CarouselCards URL={moviesURL}/>
+      <HeadersPoster  id='start'/>
+      <CarouselCards URL={moviesURL} idSession={'topMovies'}/>
       <GridProviders />
-      <CarouselCards URL={seriesURL}/>
+      <CarouselCards URL={seriesURL} idSession={'topSeries'}/>
      
     </>
   );

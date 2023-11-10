@@ -2,23 +2,33 @@
   max-width: 100%;
   width: 100vw;
   box-sizing: border-box;
-  padding: 2rem;
+  padding: 2rem 1rem;
   background-color: #ccc;
-  font-size: var(--font-ss) !important;
+  
 }
 
 .navFooter {
-  display: flex;
   width: 100%;
-  justify-content: space-between;
-  align-content: flex-start;
+  display:  flex;
   flex-wrap: wrap;
 }
 
 .navFooter ul li {
   list-style: none;
+  text-align: center;
+  font-size: var(--font-ss) !important;
 }
 
 .footerLogo{
   width: 40%;
+}
+
+.customTextFooter{
+  text-align: center;
+  flex: 1 1 auto;
+  margin-bottom: .5rem;
+}
+
+.customTextFooter h3{
+  font-size: var(--font-md);
 }

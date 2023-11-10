@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
+const imageURL = import.meta.env.VITE_IMG;
 
 const Details = () => {
   const { id } = useParams();
@@ -11,7 +12,6 @@ const Details = () => {
   const getMovie = async (url) => {
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
     setMovie(data);
   };
 
@@ -25,12 +25,18 @@ const Details = () => {
   useEffect(() => {
     const movieUrl = `${moviesURL}${id}?${apiKey}&language=pt-BR&include_image_language=pt-BR`;
     getMovie(movieUrl);
+    
   }, []);
+
+  console.log(`detalhes ${movie}`);
 
   return (
     <div className="movie-page">
+
       {movie && (
+        
         <>
+        <img src={imageURL + movie.backdrop_path} alt="" />
           <p className="tagline">{movie.tagline}</p>
           <div className="info">
             <h3>

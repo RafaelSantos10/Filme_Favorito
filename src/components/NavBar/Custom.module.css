@@ -1,6 +1,8 @@
 .navStyleCustom{
     background-color:#fbfbfb !important;
     border-bottom:1px solid #000 !important;
+    width: 90%;
+    margin: 0 auto 5rem auto !important;
 }
 
 .navLogo{
