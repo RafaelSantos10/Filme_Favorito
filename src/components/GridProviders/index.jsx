@@ -21,7 +21,7 @@ const GridProviders = () => {
     getProviders(providersUrl);
   }, []);
 
-  console.log(providers);
+
   return (
     <>
       <Container className={styles.GridContainerCustom}>

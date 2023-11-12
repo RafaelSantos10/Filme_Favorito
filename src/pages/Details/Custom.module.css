@@ -1,0 +1,93 @@
+.moviePage {
+  display: flex;
+  max-height: 400px;
+  padding: 1rem;
+  margin: -1rem auto 1.5rem auto;
+  align-content: center;
+  position: relative;
+  background-color: #000;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #000;
+}
+
+.info {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-ss);
+}
+
+.moviePage .infoDescription {
+  font-size: var(--font-ss);
+  z-index: 1;
+}
+
+.moviePage .imagePoster {
+  width: 250px;
+  z-index: 1;
+}
+
+.bgContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  opacity: 0.2;
+  right: 0;
+}
+
+.divFlexDirection {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  justify-content: center;
+  text-align: left;
+  max-width: 450px;
+  margin-left: 1rem;
+}
+
+.moviePage .tagline {
+  font-size: 12px;
+  color: #ccc;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+}
+
+.containerInfo {
+  display: flex;
+  width: 35%;
+  font-size: var(--font-ss);
+  justify-content: space-evenly;
+  position: absolute;
+  right: 0;
+}
+
+.containerInfoGenres {
+  display: flex;
+  font-size: 12px;
+}
+
+.infoSession {
+  width: 100%;
+  height: 200px;
+  position: relative;
+}
+
+@media screen and (max-width: 480px) {
+  .moviePage .imagePoster {
+    width: 120px;
+    height: 180px;
+  }
+  .divFlexDirection {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    justify-content: center;
+    text-align: left;
+    width: 250px;
+  }
+  .containerInfo {
+    width: 100%;
+  }
+}
