@@ -4,23 +4,43 @@ import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import Image from "react-bootstrap/Image";
 import fire from "../../assets/img/flame-icon.svg";
 import star from "../../assets/img/feedback-testimonial-icon.svg";
-
+import Cover from "../../assets/img/cover.png";
 import "react-circular-progressbar/dist/styles.css";
 import styles from "./Custom.module.css";
+import { useEffect, useState } from "react";
 
 const imageURL = import.meta.env.VITE_IMG;
 
-function Cards({ title, movie }) {
+function Cards({ title, movie, cardType }) {
+  const [thisCardType, setThisCardType] = useState();
+  const [urlImageDef, setUrlImageDef] = useState();
   const votePorcent = (movie.vote_average * 100) / 10;
+
+  const urlType = (type) => {
+    if (type == "movie") {
+      setThisCardType("movie");
+    } else if (type == "serie") {
+      setThisCardType("tv");
+    }
+  };
+
+  useEffect(() => {
+    urlType(cardType);
+
+    movie.poster_path
+      ? setUrlImageDef(imageURL + movie.poster_path)
+      : setUrlImageDef(Cover);
+  }, [cardType]);
 
   return (
     <Card className={styles.cardSpacingCustom}>
       <Link
-        to={`/movie/${movie.id}&language=pt-BR&include_image_language=pt-BR`}
+        to={`/${thisCardType}/${movie.id}&language=pt-BR&include_image_language=pt-BR`}
       >
         <Card.Img
           variant="top"
-          src={imageURL + movie.poster_path}
+          className={styles.cardImg}
+          src={urlImageDef}
           alt={movie.title}
         />
         <Card.Body>

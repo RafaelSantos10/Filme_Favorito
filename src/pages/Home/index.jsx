@@ -8,9 +8,9 @@ const Home = () => {
   return (
     <>
       <HeadersPoster  id='start'/>
-      <CarouselCards URL={moviesURL} idSession={'topMovies'}/>
+      <CarouselCards URL={moviesURL} idSession={'topMovies'} type={'movie'}/>
       <GridProviders />
-      <CarouselCards URL={seriesURL} idSession={'topSeries'}/>
+      <CarouselCards URL={seriesURL} idSession={'topSeries'} type={'serie'}/>
      
     </>
   );

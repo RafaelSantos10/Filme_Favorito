@@ -7,7 +7,7 @@ import { Container } from "react-bootstrap";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
-const CarouselCards = ({ URL, idSession }) => {
+const CarouselCards = ({ URL, idSession, type }) => {
   const [topMovies, setTopMovies] = useState([]);
 
   const settings = {
@@ -63,7 +63,7 @@ const CarouselCards = ({ URL, idSession }) => {
           {topMovies.map((movie) => {
             return (
               <Col key={movie.id} >
-                <Cards title={movie.title} movie={movie} />
+                <Cards title={movie.title} movie={movie} cardType={type}/>
               </Col>
             );
           })}

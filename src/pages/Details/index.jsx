@@ -8,11 +8,13 @@ import Stack from "react-bootstrap/Stack";
 import Image from "react-bootstrap/Image";
 
 const moviesURL = import.meta.env.VITE_API;
+const SeriesURL = import.meta.env.VITE_TV_SERIES;
 const apiKey = import.meta.env.VITE_API_KEY;
 const imageURL = import.meta.env.VITE_IMG;
 
 const Details = () => {
-  const { id } = useParams();
+  const { id, videoType } = useParams();
+  const allParams = useParams();
   const [movie, setMovie] = useState(null);
 
   const getMovie = async (url) => {
@@ -22,13 +24,15 @@ const Details = () => {
   };
 
   
-
   useEffect(() => {
-    const movieUrl = `${moviesURL}${id}?${apiKey}&language=pt-BR&include_image_language=pt-BR`;
-    getMovie(movieUrl);
+    if (videoType === "tv") {
+      const movieUrl = `${SeriesURL}${id}?${apiKey}&language=pt-BR&include_image_language=pt-BR`;
+      getMovie(movieUrl);
+    } else {
+      const movieUrl = `${moviesURL}${id}?${apiKey}&language=pt-BR&include_image_language=pt-BR`;
+      getMovie(movieUrl);
+    }
   }, []);
-
-  console.log(movie);
 
   if (movie)
     return (

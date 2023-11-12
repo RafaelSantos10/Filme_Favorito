@@ -7,9 +7,22 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import styles from "./Custom.module.css";
 
 import Logo from "../../assets/img/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function NavBar() {
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!search) return;
+
+    navigate(`/search?q=${search}`, { replace: true });
+    setSearch("");
+  };
+
   return (
     <Navbar expand="lg" className={` ${styles.navStyleCustom}`}>
       <Container fluid>
@@ -49,14 +62,16 @@ function NavBar() {
               Link
             </Nav.Link>
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex" onSubmit={handleSubmit}>
             <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" type="submit">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
