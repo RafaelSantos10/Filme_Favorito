@@ -32,9 +32,9 @@ const Search = () => {
     <Container>
     
           <h2 className={styles.title}>
-          Resultados para: <span className="query-text">{query}</span>
+          Resultados para: <span className={styles.queryText}>{query}</span>
         </h2>
-        <div className={styles.movies-container}>
+        <div className={styles.moviesContainer}>
           {movies &&
             movies.map((movie) => {
               if (movie.media_type !== "person") {

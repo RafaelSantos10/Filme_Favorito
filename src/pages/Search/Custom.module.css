@@ -1,15 +1,15 @@
-.container .title {
+ .title {
     color: #000;
-    font-size: 2.5rem;
+    font-size:var(--font-xl);
     text-align: center;
-    margin: 2rem 0 1rem;
+    margin: -1rem auto 3rem auto;
   }
   
-  .title .query-text {
+  .title .queryText {
     color: #f7d354;
   }
   
-  .movies-container {
+  .moviesContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
