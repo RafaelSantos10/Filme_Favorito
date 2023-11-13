@@ -4,11 +4,14 @@ import Col from "react-bootstrap/Col";
 import Cards from "../Card";
 import styles from "./Custom.module.css";
 import { Container } from "react-bootstrap";
+import useFetch from "../Api/useFetch";
+import Log from "../Spinner";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const CarouselCards = ({ URL, idSession, type }) => {
   const [topMovies, setTopMovies] = useState([]);
+  const { request, data, error, loading } = useFetch();
 
   const settings = {
     infinite: true,
@@ -45,25 +48,27 @@ const CarouselCards = ({ URL, idSession, type }) => {
     ],
   };
 
-  const getTopRatedMovies = async (url) => {
-    const res = await fetch(url);
-    const data = await res.json();
-    setTopMovies(data.results);
-  };
-
   useEffect(() => {
-    const topRatedUrl = `${URL}top_rated?${apiKey}&language=pt-BR&include_image_language=pt-BR`;
-    getTopRatedMovies(topRatedUrl);
-  }, []);
+    request(
+      `${URL}top_rated?${apiKey}&language=pt-BR&include_image_language=pt-BR`
+    );
 
+    if (data) setTopMovies(data.results);
+  }, [loading]);
+
+  if (data === null && loading === null) return null;
   return (
     <>
-      <Container  className={styles.containerCustom} id={idSession}>
+      <Container className={styles.containerCustom} id={idSession}>
         <Slider {...settings}>
           {topMovies.map((movie) => {
             return (
-              <Col key={movie.id} >
-                <Cards title={movie.title} movie={movie} cardType={type}/>
+              <Col key={movie.id}>
+                {loading ? (
+                  <Log />
+                ) : (
+                  <Cards title={movie.title} movie={movie} cardType={type} />
+                )}
               </Col>
             );
           })}

@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <>
       <div className={styles.footerContainerCustom}>
-        <footer class="single_column  ">
+        <footer className="single_column  ">
           <nav className={styles.navFooter}>
             <div className={styles.customTextFooter}>
               <img

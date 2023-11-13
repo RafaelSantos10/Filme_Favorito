@@ -95,6 +95,7 @@ function Cards({ title, movie, cardType }) {
         </Card.Body>
       </Link>
     </Card>
+    
   );
 }
 
